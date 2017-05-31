@@ -30,12 +30,15 @@ def parseOutText(f):
 
         ### split the text string into individual words, stem each word,
         ### and append the stemmed word to words (make sure there's a single
-        ### space between each stemmed word)
-        words = []
+        ### space between each stemmed word). Below code created a list while we needed a tring so I am using 
+        ### code
+        """words = []
         for k in text_string.split():
             word_stem = stemmer.stem(k)
             #words = " ".join(word_stem)
-            words.append(word_stem)
+            words.append(word_stem)"""
+        stemmed = [stemmer.stem(w) for w in text_string.split()]
+        words = " ".join(stemmed)
         
     return words
 
