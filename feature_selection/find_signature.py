@@ -34,10 +34,14 @@ features_test  = vectorizer.transform(features_test).toarray()
 ### train on only 150 events to put ourselves in this regime
 features_train = features_train[:150].toarray()
 labels_train   = labels_train[:150]
-
-
-
 ### your code goes here
+from sklearn import tree
+X = features_train
+Y = labels_train
+clf = tree.DecisionTreeClassifier()
+clf = clf.fit(X, Y)
+predictions = clf.predict(features_test)
 
+from sklearn.metrics import accuracy_score
 
-
+accuracy_score(labels_test, predictions)
